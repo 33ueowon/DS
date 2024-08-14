@@ -1,27 +1,29 @@
 #include <stdio.h>
 
-void InsertionSort(int a[], int n){
-    int i, j, key;
-
-    for ( i = 1; i < n; i++)
-    {
+void ShellSort(int a[], int n){
+    int i, j, key,t;
+    for(t = n/2; t >= 1; t /= 2){
+        for ( i = t; i < n; i++)
+            {
         key = a[i];
-        for (j = i-1; j >= 0; j--)
-        {
+            for (j = i-t; j >= 0; j-=t)
+                {
             if (key >= a[j])break;
-            a[j+1] = a[j];
+            else a[j+t] = a[j];
+            }
+            a[j+t] = key;
         }
-        a[j+1] = key;
     }
 }
+
 int main(void){
-    int a[] = {7,12,6,11,3,8,5,2};
+    int a[] = {10,31,26,4,7,32,60,28,38,10,41,50,9};
     int i, n = sizeof(a) / sizeof(int);
 
     //printf("    정렬 전 :   ");
     for ( i = 0; i < n; i++) printf("%5d", a[i]);
 
-    InsertionSort(a,n);
+    ShellSort(a,n);
    // printf("    \n삽입 정렬 후 :    ");
     for ( i = 0; i < n; i++) printf("%5d", a[i]);
 

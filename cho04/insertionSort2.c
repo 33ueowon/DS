@@ -2,10 +2,10 @@
 void insertionSort(int a [],int n){
     int i, j, key;
     for(i = 1; i<n; i++){
-    key = a[i];
-    for(j=i-1; j>=0; j--){
-        if(key >= a[j]) break;
-        else a[j+1] = a[j];
+        key = a[i];
+        for(j=i-1; j>=0; j--){
+            if(key >= a[j]) break;
+            else a[j+1] = a[j];
     }
     a[j+1] = key;
     }
